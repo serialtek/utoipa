@@ -860,6 +860,7 @@ impl<'e> EnumSchema<'e> {
                             crate::component::features::attributes::EnumVarnames,
                             crate::component::features::attributes::EnumDescriptions,
                             crate::component::features::attributes::Deprecated,
+                            crate::component::features::attributes::Repr,
                             As
                         ))
                     })?

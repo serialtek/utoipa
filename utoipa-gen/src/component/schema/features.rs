@@ -18,6 +18,7 @@ use crate::{
         },
         Feature, Merge,
     },
+    features::attributes::Repr,
     Diagnostics,
 };
 
@@ -87,7 +88,8 @@ impl Parse for EnumFeatures {
             crate::component::features::attributes::EnumVarnames,
             crate::component::features::attributes::EnumDescriptions,
             Description,
-            Bound
+            Bound,
+            Repr
         )))
     }
 }

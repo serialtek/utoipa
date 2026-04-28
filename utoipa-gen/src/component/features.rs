@@ -119,6 +119,7 @@ pub enum Feature {
     EnumVarnames(attributes::EnumVarnames),
     EnumDescriptions(attributes::EnumDescriptions),
     Extensions(attributes::Extensions),
+    Repr(attributes::Repr),
 }
 
 impl Feature {
@@ -249,6 +250,7 @@ impl ToTokensDiagnostics for Feature {
             Feature::EnumVarnames(_) => quote! { .enum_varnames() },
             Feature::EnumDescriptions(_) => quote! { .enum_descriptions() },
             Feature::Extensions(extensions) => quote! { .extensions(Some(#extensions)) },
+            Feature::Repr(repr) => quote! { .repr(Some(#repr)) },
         };
 
         tokens.extend(feature);
@@ -315,6 +317,7 @@ impl Display for Feature {
             Feature::EnumVarnames(ev) => ev.fmt(f),
             Feature::EnumDescriptions(ed) => ed.fmt(f),
             Feature::Extensions(extensions) => extensions.fmt(f),
+            Feature::Repr(repr) => repr.fmt(f),
         }
     }
 }
@@ -369,6 +372,7 @@ impl Validatable for Feature {
             Feature::EnumVarnames(ev) => ev.is_validatable(),
             Feature::EnumDescriptions(ed) => ed.is_validatable(),
             Feature::Extensions(extensions) => extensions.is_validatable(),
+            Feature::Repr(repr) => repr.is_validatable(),
         }
     }
 }
@@ -432,7 +436,8 @@ is_validatable! {
     validation::MinItems = true,
     validation::MaxProperties,
     validation::MinProperties,
-    attributes::Extensions
+    attributes::Extensions,
+    attributes::Repr
 }
 
 macro_rules! parse_features {
@@ -650,6 +655,7 @@ impl_feature_into_inner! {
     attributes::Discriminator,
     attributes::Bound,
     attributes::Ignore,
+    attributes::Repr,
     attributes::NoRecursion,
     attributes::EnumVarnames,
     attributes::EnumDescriptions,
