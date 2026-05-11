@@ -3137,6 +3137,44 @@ fn derive_struct_inline_with_description() {
 }
 
 #[test]
+fn derive_named_struct_extensions() {
+    let value = api_doc! {
+        #[schema(extensions(("x-named-struct" = json!("test"))))]
+        struct NamedStruct {
+            #[schema(extensions(("x-named-struct-field" = json!("test"))))]
+            field: String
+        }
+    };
+    assert_json_snapshot!(&value);
+}
+
+#[test]
+fn derive_unnamed_struct_extensions() {
+    let value = api_doc! {
+        #[schema(extensions(("x-unnamed-struct" = json!("test"))))]
+        struct UnnamedStruct(String);
+    };
+    assert_json_snapshot!(&value);
+}
+
+#[test]
+fn derive_mixed_enum_extensions() {
+    #[derive(ToSchema)]
+    struct Inner {}
+
+    let value = api_doc! {
+        #[schema(extensions(("x-mixed-enum" = json!("test"))))]
+        enum MixedEnum {
+            Unnamed(Inner),
+            Named {
+               details: String,
+            }
+        }
+    };
+    assert_json_snapshot!(&value);
+}
+
+#[test]
 fn derive_enum_varnames() {
     let value = api_doc! {
         #[derive(serde::Deserialize)]

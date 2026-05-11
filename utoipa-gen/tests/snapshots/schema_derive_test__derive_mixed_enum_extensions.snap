@@ -1,0 +1,39 @@
+---
+source: utoipa-gen/tests/schema_derive_test.rs
+expression: "&value"
+---
+{
+  "oneOf": [
+    {
+      "properties": {
+        "Unnamed": {
+          "$ref": "#/components/schemas/Inner"
+        }
+      },
+      "required": [
+        "Unnamed"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "Named": {
+          "properties": {
+            "details": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "details"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "Named"
+      ],
+      "type": "object"
+    }
+  ],
+  "x-mixed-enum": "test"
+}

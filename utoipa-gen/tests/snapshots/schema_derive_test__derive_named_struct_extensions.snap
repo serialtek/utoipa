@@ -1,0 +1,17 @@
+---
+source: utoipa-gen/tests/schema_derive_test.rs
+expression: "&value"
+---
+{
+  "properties": {
+    "field": {
+      "type": "string",
+      "x-named-struct-field": "test"
+    }
+  },
+  "required": [
+    "field"
+  ],
+  "type": "object",
+  "x-named-struct": "test"
+}

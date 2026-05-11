@@ -111,6 +111,7 @@ static CONFIG: once_cell::sync::Lazy<utoipa_config::Config> =
 ///   **Deprecated since OpenAPI 3.0, using `examples` is preferred instead.**
 /// * `examples(..., ...)` Comma separated list defining multiple _`examples`_ for the schema. Each
 ///   _`example`_ Can be any value e.g. literal, method reference or _`json!(...)`_.
+/// * `extensions(...)` List of extensions local to the schema
 /// * `xml(...)` Can be used to define [`Xml`][xml] object properties applicable to Structs.
 /// * `title = ...` Literal string value. Can be used to define title for struct in OpenAPI
 ///   document. Some OpenAPI code generation libraries also use this field as a name for the
@@ -145,6 +146,7 @@ static CONFIG: once_cell::sync::Lazy<utoipa_config::Config> =
 ///   **Deprecated since OpenAPI 3.0, using `examples` is preferred instead.**
 /// * `examples(..., ...)` Comma separated list defining multiple _`examples`_ for the schema. Each
 ///   _`example`_ Can be any value e.g. literal, method reference or _`json!(...)`_.
+/// * `extensions(...)` List of extensions local to the field
 /// * `default = ...` Can be any value e.g. literal, method reference or _`json!(...)`_.
 /// * `format = ...` May either be variant of the [`KnownFormat`][known_format] enum, or otherwise
 ///   an open value as a string. By default the format is derived from the type of the property
@@ -234,6 +236,7 @@ static CONFIG: once_cell::sync::Lazy<utoipa_config::Config> =
 ///   resolved from doc comments of the type.
 /// * `example = ...` Can be any value e.g. literal, method reference or _`json!(...)`_.
 ///   **Deprecated since OpenAPI 3.0, using `examples` is preferred instead.**
+/// * `extensions(...)` List of extensions local to the schema
 /// * `examples(..., ...)` Comma separated list defining multiple _`examples`_ for the schema. Each
 ///   _`example`_ Can be any value e.g. literal, method reference or _`json!(...)`_.
 /// * `default = ...` Can be any value e.g. literal, method reference or _`json!(...)`_. If no value
@@ -322,6 +325,7 @@ static CONFIG: once_cell::sync::Lazy<utoipa_config::Config> =
 /// * `example = ...` Can be any value e.g. literal, method reference or _`json!(...)`_.
 ///   **Deprecated since OpenAPI 3.0, using `examples` is preferred instead.**
 /// * `examples(..., ...)` Comma separated list defining multiple _`examples`_ for the schema. Each
+/// * `extensions(...)` List of extensions local to the schema
 /// * `default = ...` Can be any value e.g. literal, method reference or _`json!(...)`_.
 /// * `title = ...` Literal string value. Can be used to define title for enum in OpenAPI
 ///   document. Some OpenAPI code generation libraries also use this field as a name for the

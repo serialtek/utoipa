@@ -1477,6 +1477,10 @@ builder! {
         /// referenced component does not support summary field this does not have effect.
         #[serde(skip_serializing_if = "String::is_empty", default)]
         pub summary: String,
+
+        /// Optional extensions `x-something`.
+        #[serde(skip_serializing_if = "Option::is_none", flatten)]
+        pub extensions: Option<Extensions>,
     }
 }
 

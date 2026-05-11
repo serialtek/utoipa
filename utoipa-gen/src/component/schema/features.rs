@@ -18,7 +18,7 @@ use crate::{
         },
         Feature, Merge,
     },
-    features::attributes::Repr,
+    features::attributes::{Extensions, Repr},
     Diagnostics,
 };
 
@@ -40,7 +40,8 @@ impl Parse for NamedFieldStructFeatures {
             Deprecated,
             Description,
             Bound,
-            NoRecursion
+            NoRecursion,
+            Extensions
         )))
     }
 }
@@ -66,7 +67,8 @@ impl Parse for UnnamedFieldStructFeatures {
             ContentMediaType,
             Bound,
             NoRecursion,
-            Pattern
+            Pattern,
+            Extensions
         )))
     }
 }
@@ -110,7 +112,8 @@ impl Parse for MixedEnumFeatures {
             Deprecated,
             Description,
             Discriminator,
-            NoRecursion
+            NoRecursion,
+            Extensions
         )))
     }
 }
@@ -150,7 +153,8 @@ impl Parse for NamedFieldFeatures {
             ContentEncoding,
             ContentMediaType,
             Ignore,
-            NoRecursion
+            NoRecursion,
+            Extensions
         )))
     }
 }
